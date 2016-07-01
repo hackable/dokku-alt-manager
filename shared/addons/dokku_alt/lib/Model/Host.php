@@ -23,7 +23,7 @@ class Model_Host extends \SQL_Model {
     function connect(){
         try {
 
-            $ssh = new \Net_SSH2($this['addr'], $this['ssh_port'] ? : 22);
+            $ssh = new \phpseclib\Net\SSH2($this['addr'], $this['ssh_port'] ? : 22);
             $key=$this->getPrivateKey();
 
             if (!$ssh->login($this['ssh_user'] ? : 'dokku', $key)) {
@@ -37,7 +37,7 @@ class Model_Host extends \SQL_Model {
     }
 
     function getPrivateKey(){
-        $key = new \Crypt_RSA();
+        $key = new \phpseclib\Crypt\RSA();
 
         if($this['private_key']){
             $key->loadKey($this['private_key']);

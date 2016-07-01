@@ -32,7 +32,7 @@ class Model_Access extends  \SQL_Model {
 
     function generateAndAdd()
     {
-        $rsa = new \Crypt_RSA();
+        $rsa = new \phpseclib\Crypt\RSA();
         $rsa->setPublicKeyFormat(CRYPT_RSA_PUBLIC_FORMAT_OPENSSH);
         $this->set($rsa->createKey());
         $this->save();

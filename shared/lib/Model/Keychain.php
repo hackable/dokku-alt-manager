@@ -27,7 +27,7 @@ class Model_Keychain extends SQL_Model {
      * passphrase works
      */
     function verify() {
-        $rsa = new Crypt_RSA();
+        $rsa = new \phpseclib\Crypt\RSA();
 
         $rsa->loadKey($this['notes']);
         $encrypt = $rsa->encrypt('test');
@@ -46,7 +46,7 @@ class Model_Keychain extends SQL_Model {
      * Returns Crypt_RSA object with decrypted private key.
      */
     function getPrivateKey(){
-        $key = new \Crypt_RSA();
+        $key = new \phpseclib\Crypt\RSA();
 
         $pack = $this->app->getPackingKey();
         if($pack)$key->setPassword($pack);
