@@ -8,16 +8,16 @@ RUN apt-get update && \
         curl \
         git \
         apache2 \
-        libapache2-mod-php5 \
-        php5-mysql \
-        php5-gd \
-        php5-curl \
+        libapache2-mod-php7.0 \
+        php7.0-mysql \
+        php7.0-gd \
+        php7.0-curl \
         php-pear \
-        php-apc && \
+        php-apcu && \
     rm -rf /var/lib/apt/lists/*
 
-RUN sed -i "s/variables_order.*/variables_order = \"EGPCS\"/g" /etc/php5/apache2/php.ini
-RUN sed -i "s/variables_order.*/variables_order = \"EGPCS\"/g" /etc/php5/cli/php.ini
+RUN sed -i "s/variables_order.*/variables_order = \"EGPCS\"/g" /etc/php/7.0/apache2/php.ini
+RUN sed -i "s/variables_order.*/variables_order = \"EGPCS\"/g" /etc/php/7.0/cli/php.ini
 RUN sed -i "s/# StrictHostKeyChecking ask/ StrictHostKeyChecking no/g" /etc/ssh/ssh_config
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
