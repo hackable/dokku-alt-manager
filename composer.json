@@ -8,8 +8,8 @@
         }
     },
     "require": {
-        "atk4/atk4": "4.3.*@dev",
-        "phpseclib/phpseclib": "0.3.*@dev"
+        "atk4/atk4": "^4.3",
+        "phpseclib/phpseclib": "^2.0"
     },
     "extra": {
       "heroku": {
